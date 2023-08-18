@@ -4,11 +4,45 @@
 	<script>
 		function main () {
 			var investigationRoll = document.getElementById("investigation").value;
-			var victim = document.getElementById("target").value;
+			var victim = document.getElementById("target");
 			var sleightOfHandRoll = document.getElementById("sleightOfHand").value;
+			var targetDC = 0;
+			var reward = 0;
+
 		
 
-			
+			switch(investigationRoll) {
+  				case 0:
+				    // Do Nothing
+			    	break;
+  				case <= 9:
+			    	targetDC = investigationRoll;
+			    	reward = 1;
+			    	victim.options[1].selected;
+    				break;
+  				case <= 10:
+			    	targetDC = 10;
+			    	reward = 2;
+			    	victim.options[2].selected;
+    				break;
+  				case <= 15:
+			    	targetDC = 15;
+			    	reward = 3;
+			    	victim.options[3].selected;
+    				break;
+  				case <= 20:
+			    	targetDC = 20;
+			    	reward = 4;
+			    	victim.options[4].selected;
+    				break;
+  				case <= 25:
+			    	targetDC = 25;
+			    	reward = 5;
+			    	victim.options[5].selected;
+    				break;
+    			default:
+    				break;
+			}
 		}
 		
 	</script>
