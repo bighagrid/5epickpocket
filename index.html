@@ -3,6 +3,13 @@
 	<title>5e Pickpocketing Calculator</title>
 	<script>
 
+
+		function rand(min, max) {
+		  min = Math.ceil(min);
+		  max = Math.floor(max);
+		  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+		}
+
 		function rewardCommon() {
 			var itemList = [
 "Bead of Nourishment",
@@ -418,7 +425,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a13</h1>
+	<h1>Pickpocketing Calculator a14</h1>
 		<form>
 		<table>
 			<tr>
