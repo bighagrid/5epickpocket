@@ -18,27 +18,27 @@
   				case investigationRoll<=9 && investigationRoll>0:
 			    	targetDC = investigationRoll;
 			    	reward = 1;
-			    	victim.options[1].selected;
+			    	victim.options[1].selected = true;
     				break;
   				case investigationRoll==10:
 			    	targetDC = 10;
 			    	reward = 2;
-			    	victim.options[2].selected;
+			    	victim.options[2].selected = true;
     				break;
   				case investigationRoll<=15 && investigationRoll>10:
 			    	targetDC = 15;
 			    	reward = 3;
-			    	victim.options[3].selected;
+			    	victim.options[3].selected = true;
     				break;
   				case investigationRoll<=20 && investigationRoll>15:
 			    	targetDC = 20;
 			    	reward = 4;
-			    	victim.options[4].selected;
+			    	victim.options[4].selected = true;
     				break;
   				case investigationRoll<=25 && investigationRoll>20:
 			    	targetDC = 25;
 			    	reward = 5;
-			    	victim.options[5].selected;
+			    	victim.options[5].selected = true;
     				break;
     			default:
     				break;
@@ -48,7 +48,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a1</h1>
+	<h1>Pickpocketing Calculator a2</h1>
 		<form>
 		<table>
 			<tr>
