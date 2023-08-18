@@ -9,8 +9,6 @@
 			var targetDC = 0;
 			var reward = 0;
 
-		
-
 			switch(true) {
   				case investigationRoll == 0:
 				    // Do Nothing
@@ -45,10 +43,33 @@
 			}
 		}
 		
+
+		function playSafe() {
+			var index = document.getElementById("target").selectedIndex;
+
+			switch(index) {
+				case 1:
+					document.getElementById("investigation").value = 9;
+					break;
+				case 2:
+					document.getElementById("investigation").value = 10;
+					break;
+				case 3:
+					document.getElementById("investigation").value = 15;
+					break;
+				case 4:
+					document.getElementById("investigation").value = 20;
+					break;
+				case 5:
+					document.getElementById("investigation").value = 25;
+					break;
+			}
+		}
+
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a2</h1>
+	<h1>Pickpocketing Calculator a3</h1>
 		<form>
 		<table>
 			<tr>
@@ -60,7 +81,7 @@
 			<tr>
 				<th>Target</th>
 				<td>
-					<select id='target' OnChange='main()'>
+					<select id='target' OnChange='playSafe()'>
 						<option value=''>Enter Roll Above</option>
 						<option value='0'>9 or less - Townsfolk - 1d10 gp per day</option>
 						<option value='1'>10 - Merchants/Tier 1 adventurers - 1d20 gp per day and 5% chance of a special common item</option>
