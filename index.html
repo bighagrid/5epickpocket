@@ -327,7 +327,7 @@
 						"10 - Merchants/Tier 1 adventurers - 1d20 gp per day and 5% chance of a special common item",
 						"15 - Rich Merchants/Tier 2 adventurers - 2d20 gp per day and 5% chance of special item (60% common, 40% uncommon)",
 						"20 - Nobles/Tier 3 adventurers - 2d100 gp per day and 10% chance of special item (50% common, 30% uncommon, 20% rare)",
-						"25 - Rich Nobles/Tier 4 adventurers - 200 gp per day and 10% chance of special item (40% common, 30% uncommon, 20% rare, 10% very rare)"
+						"25 - Rich Nobles/Tier 4 adventurers - 4d100 gp per day and 10% chance of special item (40% common, 30% uncommon, 20% rare, 10% very rare)"
 				];
 			var victim = document.getElementById("target");
 
@@ -344,9 +344,9 @@
 
 
 		function main () {
-			document.getElementById("investigation").value = rand(6,26);
-			document.getElementById("sleightOfHand").value = rand(8,28);
-			document.getElementById("stealthDeception").value = rand(10,29);
+			//document.getElementById("investigation").value = rand(6,26);
+			//document.getElementById("sleightOfHand").value = rand(8,28);
+			//document.getElementById("stealthDeception").value = rand(10,29);
 
 			var investigationRoll = parseInt(document.getElementById("investigation").value);
 			var victim = document.getElementById("target");
@@ -447,7 +447,7 @@
 							}
 							break;
 						case 5:
-							gold=200;
+							gold=rand(4,400);
 							if (itemChanceRoll<=10) { 
 								if (rarityRoll>90) {
 									item = rewardVeryRare();
@@ -521,7 +521,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a25</h1>
+	<h1>Pickpocketing Calculator a26</h1>
 		<form>
 		<table>
 			<tr>
@@ -529,7 +529,8 @@
 				<td>
 					<select id='law'>
 						<option value='-10'>Lawless</option>
-						<option value='10' selected>Secured</option>
+						<option value='0' selected>Average</option>
+						<option value='10'>Secured</option>
 					</select>
 				</td>
 			</tr>
@@ -538,7 +539,8 @@
 				<td>
 					<select id='guild'>
 						<option value='-5'>None</option>
-						<option value='5' selected>Strong</option>
+						<option value='0' selected>Average</option>
+						<option value='5'>Strong</option>
 					</select>
 				</td>
 			</tr>
