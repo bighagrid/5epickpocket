@@ -2,6 +2,258 @@
 <head>
 	<title>5e Pickpocketing Calculator</title>
 	<script>
+
+		function rewardCommon() {
+			var itemList = [
+"Bead of Nourishment",
+"Bead of Refreshment",
+"Candle of the Deep",
+"Perfume of Bewitching",
+"Pot of Awakening",
+"Potion of climbing",
+"Potion of healing",
+"Scroll 1st level spell",
+"Scroll cantrip",
+"Wand of Conducting",
+"Wand of Pyrotechnics",
+"Wand of Scowls",
+"Wand of Smiles",
+"Charlatans Die",
+"Clockwork Amulet",
+"Dark Shard Amulet",
+"Ear Horn of Hearing",
+"Ersatz Eye",
+"Hewards Handy Spice Pouch",
+"Horn of Silent Alarm",
+"Mystery Key",
+"Orb of Direction",
+"Orb of Time",
+"Perfume of Bewitching",
+"Pipe of Smoke Monsters",
+"Rope of Mending",
+"Ruby of the WarMage",
+"Talking Doll",
+"Tankard of Sobriety",
+"An intricate Key",
+"A ring of keys",
+"Vial of Holy Water",
+"A roughly scribbled map",
+"A fine map ",
+"A Random spell component",
+"A note inviting you to join the local thieves guild w/ location to meet and Thieves Cant code word.",
+"Loaded cheater dice",
+"A Treasure map",
+"Flask of expensive booze",
+"A signate ring that provides access somewhere",
+"Holy symbol worth 100 gp"
+				]
+
+			max=itemList.length;
+
+			index=rand(0,max);
+
+			rewardItem=itemList[index];
+
+			return rewardItem;
+
+		}
+
+		function rewardUncommon() {
+			var itemList = [
+"Scroll - 2nd level spell",
+"Scroll 3rd level spell",
+"Bottled Breath",
+"Dust of Disappearance",
+"Dust of Dryness",
+"Dust of Sneezing and choking",
+"Keoghtom's ointment",
+"Oil of slipperiness",
+"Philter of Love",
+"Potion of animal friendship",
+"Potion of fire breathing",
+"Potion of greater healing",
+"Potion of Hill Giant Strength",
+"Potion of Growth",
+"Portion of Poison",
+"Potion of resistance",
+"Potion of WaterBreathing",
+"Alchemy Jug",
+"Amulet of proof against detection and location",
+"Bag of Holding",
+"Bag of Tricks",
+"Balance of Harmony",
+"Balloon Pack",
+"Brooch of Shielding",
+"Circlet of Blasting",
+"Deck of Illusions (# of cards?)",
+"Driftglobe",
+"Elemental Gem",
+"Eyes of Charming",
+"Eyes of minute seeing",
+"Eyes of the eagle",
+"Figuring of wonderous power, silver raven",
+"Gem of Brightness",
+"Goggles of the night",
+"Insignia of Claws",
+"Medallion of thoughts",
+"Necklace of Adaptation",
+"Pearl of Power",
+"Periapt of health",
+"Periapt of wound closure",
+"Pipes of Haunting",
+"Pipes of the sewers",
+"Ring of Jumping",
+"Ring of Mind Shielding",
+"Ring of swimming",
+"Ring of Warmth",
+"Ring of Water Walking",
+"Rope of Climbing",
+"Sending Stone",
+"Spell Gem (obsidian)",
+"Spell Gem (Lapis Lazuli)",
+"Stone of good luck",
+"Stone of Ill luck",
+"Wand of Entangle",
+"Wand of Magic Detection",
+"Wand of Magic Missiles",
+"Wand of Secrets",
+"Wand of the Warmage +1",
+"Wand of Web",
+"Dagger +1",
+"Dagger of Warning",
+"Wind Fan"
+				]
+
+			max=itemList.length;
+
+			index=rand(0,max);
+
+			rewardItem=itemList[index];
+
+			return rewardItem;
+
+		}
+
+		function rewardRare() {
+			var itemList = [
+"Bead of Force",
+"Elixir of Health",
+"Necklace of Fireballs (one bead)",
+"Potion of Clairvoyance",
+"Potion of Diminution",
+"Potion of Fire Giant Strength",
+"Potion of Frost Giant Strength",
+"Potion of Stone Giant Strength",
+"Potion of Gaseous Form",
+"Potion of Heroism",
+"Potion of Beast Mind Control",
+"Potion of Mind Reading",
+"Potion of Superior Healing",
+"Quaals Feather Token (anchor, bird, fan, swan boat, tree, whip",
+"Scroll of Protection, any",
+"Scroll 4th level spell",
+"Scroll 5th level spell",
+"Amulet of Health",
+"Bag of Beans",
+"Bowl of Commanding Water Elementals",
+"Brazier of commanding fire elementals",
+"Censer of controlling air elementals",
+"Chime of opening",
+"Cube of Force",
+"Daerns instant fortress",
+"Dagger of Venom",
+"Dimensional Shackles",
+"Eagle Whistle",
+"Figuring of Wonderous Power (griffon, Fly, Lion, Goat, Elephant, Dog, Owl)",
+"Gavel of the venn rune",
+"Gem of Seeing",
+"Horn of Blasting",
+"Horn of Valhalla Brass",
+"Horn of Valhalla silver",
+"Horseshoes of speed",
+"Ion stone (awareness, protection, reserve, sustenance)",
+"Loadstone",
+"Opal of the ild rune",
+"Orb of the stein rune",
+"Periapt of Proof against poison",
+"Portable Hole",
+"Ring of animal influence",
+"Ring of Evasion",
+"Ring of Feather Falling",
+"Ring of Free Action",
+"Ring of Protection",
+"Ring of resistance",
+"Necklace of Prayer beads (bless, cure, favor, smiting, summons)",
+"Ring of spell storing",
+"Ring of the ram",
+"Ring of x-ray vision",
+"Spell Gem Quartz",
+"Spell Gem Bloodstone",
+"Stone speaker crystal",
+"Stone of controlling earth elementals",
+"Wand of Binding",
+"Wand of enemy detection",
+"Wand of Fear",
+"Wand of fireballs",
+"Wand of lightning bolts",
+"Wand of paralysis",
+"Wand of the War Mage +2",
+"Wand of viscid globes",
+"Wand of Winter",
+"Wand of Wonder"
+				]
+
+			max=itemList.length;
+
+			index=rand(0,max);
+
+			rewardItem=itemList[index];
+
+			return rewardItem;
+
+		}
+
+
+		function rewardVeryRare() {
+			var itemList = [
+"Candle of Invocation",
+"Nolzur's marvelous pigments",
+"Potion of Flying",
+"Potion of Cloud Giant strength",
+"Potion of Invisibility",
+"Potion of speed",
+"Potion of Supreme Healing",
+"Potion of Vitality",
+"Spell Scroll 6th level",
+"Spell Scroll 7th level",
+"Spell Scroll 8th level",
+"Crystal Ball",
+"Devastation Orb",
+"Efreeti Bottle",
+"Figuring of wonderous power Obsidian steed",
+"Horn of Valhalla Bronze",
+"Ingot of the skold rune",
+"Ion stone (absorption, agility, fortitude, insight, intellect, leadership, strength)",
+"Manual of Golems",
+"Ring of Shooting Stars",
+"Shard of the vind rune",
+"Spell Gem Amber",
+"Spell Gem Jade",
+"Spell Gem Topaz",
+"Wand of Polymorph"
+				]
+
+			max=itemList.length;
+
+			index=rand(0,max);
+
+			rewardItem=itemList[index];
+
+			return rewardItem;
+
+		}
+
+
 		function buildTarget(reward) {
 			var targetList= [
 						"Enter Roll Above",
@@ -19,7 +271,7 @@
 
 			for (var i = 0; i<=reward; i++){
 			    var opt = document.createElement('option');
-			    opt.innerHTML = i+" "+targetList[i];
+			    opt.innerHTML = targetList[i];
 			    victim.appendChild(opt);
 			}
 		}
@@ -32,6 +284,8 @@
 			var targetDC = 0;
 			var reward = 0;
 			var complication = false;
+			var gold=0;
+			var item="";
 
 
 
@@ -76,8 +330,62 @@
 
 			if (sleightOfHandRoll > 0) {
 				if (sleightOfHandRoll >= targetDC) {
-					reward = 1;
-					document.getElementById("result").value = "Success";
+					itemChanceRoll=rand(1,100);
+					rarityRoll=rand(1,100);
+					switch (reward) {
+						case 1:
+							gold=rand(1,10);
+							break;
+						case 2:
+							gold=rand(1,20);
+							if (itemChanceRoll<=5) { 
+								item = rewardCommon();
+							}
+							break;
+						case 3:
+							gold=rand(2,40);
+							if (itemChanceRoll<=5) { 
+								if (rarityRoll>60) {
+									item = rewardUncommon();
+								} else {
+									item = rewardCommon();
+								}
+							}
+							break;
+						case 4:
+							gold=rand(2,200);
+							if (itemChanceRoll<=10) { 
+								if (rarityRoll>80) {
+									item = rewardRare();
+								} else if (rarityRoll>50) {
+									item = rewardUncommon();
+								} else {
+									item = rewardCommon();
+								}
+							}
+							break;
+						case 5:
+							gold=200;
+							if (itemChanceRoll<=10) { 
+								if (rarityRoll>90) {
+									item = rewardVeryRare();
+								} else if (rarityRoll>70) {
+									item = rewardRare();
+								} else if (rarityRoll>40) {
+									item = rewardUncommon();
+								} else {
+									item = rewardCommon();
+								}
+							}
+							break;
+					}
+
+					if (item!="") {
+						document.getElementById("result").value = "Success - "+gold+"gp, "+item;
+					} else {
+						document.getElementById("result").value = "Success - "+gold+"gp";
+					}
+
 				} else {
 					document.getElementById("result").value = "Fail!";
 				}
@@ -110,7 +418,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a12</h1>
+	<h1>Pickpocketing Calculator a13</h1>
 		<form>
 		<table>
 			<tr>
