@@ -2,12 +2,34 @@
 <head>
 	<title>5e Pickpocketing Calculator</title>
 	<script>
+		function buildTarget(reward) {
+			var targetList= [
+						"Enter Roll Above",
+						"9 or less - Townsfolk - 1d10 gp per day",
+						"10 - Merchants/Tier 1 adventurers - 1d20 gp per day and 5% chance of a special common item",
+						"15 - Rich Merchants/Tier 2 adventurers - 2d20 gp per day and 5% chance of special item (60% common, 40% uncommon)",
+						"20 - Nobles/Tier 3 adventurers - 2d100 gp per day and 10% chance of special item (50% common, 30% uncommon, 20% rare)",
+						"25 - Rich Nobles/Tier 4 adventurers - 200 gp per day and 10% chance of special item (40% common, 30% uncommon, 20% rare, 10% very rare)"
+				];
+			var victim = document.getElementById("target");
+
+			for(var i = 0;i < reward;i++){
+            	victim.options[i].value = targetList[reward];
+        	}			    	
+
+		}
+
+
 		function main () {
 			var investigationRoll = document.getElementById("investigation").value;
 			var victim = document.getElementById("target");
 			var sleightOfHandRoll = document.getElementById("sleightOfHand").value;
 			var targetDC = 0;
 			var reward = 0;
+			var complication = false;
+
+
+
 
 			switch(true) {
   				case investigationRoll == 0:
@@ -16,30 +38,44 @@
   				case investigationRoll<=9 && investigationRoll>0:
 			    	targetDC = investigationRoll;
 			    	reward = 1;
+			    	buildTarget(reward);
 			    	victim.options[1].selected = true;
     				break;
   				case investigationRoll==10:
 			    	targetDC = 10;
 			    	reward = 2;
+			    	buildTarget(reward);
 			    	victim.options[2].selected = true;
     				break;
   				case investigationRoll<=15 && investigationRoll>10:
 			    	targetDC = 15;
 			    	reward = 3;
+			    	buildTarget(reward);
 			    	victim.options[3].selected = true;
     				break;
   				case investigationRoll<=20 && investigationRoll>15:
 			    	targetDC = 20;
 			    	reward = 4;
+			    	buildTarget(reward);
 			    	victim.options[4].selected = true;
     				break;
-  				case investigationRoll<=25 && investigationRoll>20:
+  				case investigationRoll>20:
 			    	targetDC = 25;
 			    	reward = 5;
+			    	buildTarget(reward);
 			    	victim.options[5].selected = true;
     				break;
     			default:
     				break;
+			}
+
+			if (sleightOfHandRoll > 0) {
+				if (sleightOfHandRoll >= targetDC) {
+					reward = 1;
+					document.getElementById("result").value = "Success";
+				} else {
+					document.getElementById("result").value = "Fail!";
+				}
 			}
 		}
 		
@@ -69,7 +105,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a3</h1>
+	<h1>Pickpocketing Calculator a5</h1>
 		<form>
 		<table>
 			<tr>
@@ -82,12 +118,7 @@
 				<th>Target</th>
 				<td>
 					<select id='target' OnChange='playSafe()'>
-						<option value=''>Enter Roll Above</option>
-						<option value='0'>9 or less - Townsfolk - 1d10 gp per day</option>
-						<option value='1'>10 - Merchants/Tier 1 adventurers - 1d20 gp per day and 5% chance of a special common item</option>
-						<option value='2'>15 - Rich Merchants/Tier 2 adventurers - 2d20 gp per day and 5% chance of special item (60% common, 40% uncommon)</option>
-						<option value='3'>20 - Nobles/Tier 3 adventurers - 2d100 gp per day and 10% chance of special item (50% common, 30% uncommon, 20% rare)</option>
-						<option value='4'>25 - Rich Nobles/Tier 4 adventurers - 200 gp per day and 10% chance of special item (40% common, 30% uncommon, 20% rare, 10% very rare)</option>
+						<option>Enter Roll Above</option>
 					</select>
 				</td>
 			</tr>
@@ -98,6 +129,13 @@
 
 				</td>
 			</tr>		
+			<tr>
+				<th>Result</th>
+				<td>
+					<input type=text id='result' value='' readonly>
+				</td>
+			</tr>		
+
 
 		</table>
 		<button onclick='main()'>Reset</button>
