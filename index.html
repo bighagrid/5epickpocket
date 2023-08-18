@@ -10,6 +10,76 @@
 		  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 		}
 
+		function complications() {
+			theRoll=rand(1,100);
+
+			switch (true){
+				case theRoll>=1 && theRoll<=27:
+					result="Word gets out that there is a pickpocket active in the area.  For the next 3d4 days, further attempts are at Disadvantage";
+					break;
+				case theRoll>=28 && theRoll<=35:
+					result="Someone saw you, they approach you and ask for a bribe to stay quiet.";
+					break;
+				case theRoll>=36 && theRoll<=42:
+					result="Someone saw you, a description of you is being circulated throughout the town.";
+					break;
+				case theRoll>=43 && theRoll<=48:
+					result="Someone saw you, your whole party is being sought for the crime.";
+					break;
+				case theRoll>=49 && theRoll<=55:
+					result="The local Thieves guild has noticed you and approaches you demanding a tithe of 50%";
+					break;
+				case theRoll>=56 && theRoll<=61:
+					result="Your loot is a single, easily identified item that you can’t fence in this region.";
+					break;
+				case theRoll>=62 && theRoll<=66:
+					result="You were pickpocketed while working.  Roll 1d10, higher means something more dear to you was stolen.";
+					break;
+				case theRoll>=67 && theRoll<=71:
+					result="Target had a pickpocket trap. Make a DC 10 Constitution save or take 3d6 poison damage. Half as much on a save.";
+					break;
+				case theRoll>=72 && theRoll<=75:
+					result="A bounty equal to 10 times your earnings is offered for information about your crime.";
+					break;
+				case theRoll>=76 && theRoll<=79:
+					result="An unknown person witnessed your crime and threatened to call you out to your victim unless you promised to render a service.";
+					break;
+				case theRoll>=80 && theRoll<=82:
+					result="You robbed from someone who was under a local crime lord’s protection, and who now wants revenge.";
+					break;
+				case theRoll>=83 && theRoll<=85:
+					result="Your victim calls in a favor from a guard, doubling the efforts to solve the case.";
+					break;
+				case theRoll>=86 && theRoll<=89:
+					result="Your victim approaches one of your adventuring companions asking about you.";
+					break;
+				case theRoll>=90 && theRoll<=92:
+					result="A paladin or cleric of justice is keeping their eyes peeled for someone matching your description.";
+					break;
+				case theRoll>=93 && theRoll<=94:
+					result="You stole something precious from a beloved figure; everyone in town is looking for you, the thieving scumbag.";
+					break;
+				case theRoll>=95 && theRoll<=96:
+					result="You have snatched an anti-pickpocket token. Make a DC 15 Constitution check or you get an easily noticeable rash over your whole body for 1d4 days.  Guards seeing this rash will recognize what it is.";
+					break;
+				case theRoll>=97 && theRoll<=98:
+					result="The target is pissed and is expending 10 times the value stolen to track you down.";
+					break;
+				case theRoll==99:
+					result="The local Thieves Guild hires assassins to kill you.";
+					break;
+				case theRoll==100:
+					result="Your target hires a group of murder hobo's to track you down and kill you.";
+					break;
+			}
+
+
+			return result;
+
+		}
+
+
+
 		function rewardCommon() {
 			var itemList = [
 "Bead of Nourishment",
@@ -276,17 +346,24 @@
 		function main () {
 			document.getElementById("investigation").value = rand(6,26);
 			document.getElementById("sleightOfHand").value = rand(8,28);
+			document.getElementById("stealthDeception").value = rand(10,29);
 
 			var investigationRoll = document.getElementById("investigation").value;
 			var victim = document.getElementById("target");
 			var sleightOfHandRoll = document.getElementById("sleightOfHand").value;
+			var stealthDeceptionRoll = document.getElementById("stealthDeception").value;
+			var lawMod = document.getElementById("law").value;
+			var guildMod = document.getElementById("guild").value;
+			var daysMod = document.getElementById("days").value;
+
 			var targetDC = 0;
 			var reward = 0;
 			var complication = false;
 			var gold=0;
 			var item="";
+			var compMod = 0;
 
-
+			compMod=compMod+lawMod+guildMod+(daysMod*5);
 
 			switch(true) {
   				case investigationRoll == 0:
@@ -297,12 +374,14 @@
 			    	reward = 1;
 			    	buildTarget(reward);
 			    	victim.options[1].selected = true;
+			    	compMod=compMod-10;
     				break;
   				case investigationRoll<15 && investigationRoll>9:
 			    	targetDC = 10;
 			    	reward = 2;
 			    	buildTarget(reward);
 			    	victim.options[2].selected = true;
+			    	compMod=compMod-5;
     				break;
   				case investigationRoll<20 && investigationRoll>=15:
 			    	targetDC = 15;
@@ -315,12 +394,14 @@
 			    	reward = 4;
 			    	buildTarget(reward);
 			    	victim.options[4].selected = true;
+			    	compMod=compMod+5;
     				break;
   				case investigationRoll>=25:
 			    	targetDC = 25;
 			    	reward = 5;
 			    	buildTarget(reward);
 			    	victim.options[5].selected = true;
+			    	compMod=compMod+10;
     				break;
     			default:
     				break;
@@ -355,6 +436,7 @@
 							if (itemChanceRoll<=10) { 
 								if (rarityRoll>80) {
 									item = rewardRare();
+									compMod=compMod+5;									
 								} else if (rarityRoll>50) {
 									item = rewardUncommon();
 								} else {
@@ -367,8 +449,10 @@
 							if (itemChanceRoll<=10) { 
 								if (rarityRoll>90) {
 									item = rewardVeryRare();
+									compMod=compMod+10;
 								} else if (rarityRoll>70) {
 									item = rewardRare();
+									compMod=compMod+5;
 								} else if (rarityRoll>40) {
 									item = rewardUncommon();
 								} else {
@@ -385,8 +469,19 @@
 					}
 
 				} else {
-					document.getElementById("result").value = "Fail!";
+					document.getElementById("result").value = "Failed to Pickpocket!";
 				}
+			}
+
+
+			if (stealthDeceptionRoll>=compMod) {
+					document.getElementById("escape").value = "Escaped with no Complications.";
+
+			} else {
+
+					whatHappened=complications();
+
+					document.getElementById("escape").value = "Complications! - "+whatHappened;
 			}
 		}
 		
@@ -413,12 +508,43 @@
 			}
 		}
 
+
+
+
+
+
+
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a18</h1>
+	<h1>Pickpocketing Calculator a19</h1>
 		<form>
 		<table>
+			<tr>
+				<th>Lawfulness of city or neighborhood</th>
+				<td>
+					<select id='law'>
+						<option value='-10'>Lawless</option>
+						<option value='10'>Secured</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Strength and influence of local Thieves Guild</th>
+				<td>
+					<select id='guild'>
+						<option value='-5'>None</option>
+						<option value='5'>Strong</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>How many days previously did pickpocketing?</th>
+				<td>
+					<input type=text id='days' value='0' size=2>
+				</td>
+			</tr>
+
 			<tr>
 				<th>Investigation Roll</th>
 				<td>
@@ -444,6 +570,19 @@
 				<th>Result</th>
 				<td>
 					<input type=text id='result' size=150 value='' readonly>
+				</td>
+			</tr>		
+			<tr>
+				<th>Stealth/Deception Roll for Escape</th>
+				<td>
+					<input type=text id='stealthDeception' value='0' size=2 OnChange='main()'>
+
+				</td>
+			</tr>		
+			<tr>
+				<th>Escape Complication</th>
+				<td>
+					<input type=text id='escape' size=150 value='' readonly>
 				</td>
 			</tr>		
 
