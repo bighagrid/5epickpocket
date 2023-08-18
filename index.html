@@ -365,8 +365,6 @@
 
 			compMod=compMod+lawMod+guildMod+(daysMod*5);
 
-			console.log(compMod);
-
 			switch(true) {
   				case investigationRoll == 0:
 				    // Do Nothing
@@ -478,15 +476,6 @@
 
 			document.getElementById("escapeDC").value = compMod;
 
-			if (stealthDeceptionRoll>=compMod) {
-					document.getElementById("escape").value = "Escaped with no Complications.";
-
-			} else {
-
-					whatHappened=complications();
-
-					document.getElementById("escape").value = "Complications! - "+whatHappened;
-			}
 		}
 		
 
@@ -513,7 +502,21 @@
 		}
 
 
+function getAway(){
+			var compMod = parseInt(document.getElementById("escapeDC").value);
+			var stealthDeceptionRoll = parseInt(document.getElementById("stealthDeception").value);
 
+				if (stealthDeceptionRoll>=compMod) {
+					document.getElementById("escape").value = "Escaped with no Complications.";
+
+			} else {
+
+					whatHappened=complications();
+
+					document.getElementById("escape").value = "Complications! - "+whatHappened;
+			}
+
+}
 
 
 
@@ -521,7 +524,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a26</h1>
+	<h1>Pickpocketing Calculator a28</h1>
 		<form>
 		<table>
 			<tr>
@@ -581,7 +584,7 @@
 			<tr>
 				<th>Stealth/Deception Roll for Escape</th>
 				<td>
-					<input type=text id='stealthDeception' value='0' size=2 OnChange='main()'>
+					<input type=text id='stealthDeception' value='0' size=2 OnChange='getAway()'>
 
 				</td>
 			</tr>		
