@@ -474,6 +474,8 @@
 			}
 
 
+			document.getElementById("escapeDC").value = compMod;
+
 			if (stealthDeceptionRoll>=compMod) {
 					document.getElementById("escape").value = "Escaped with no Complications.";
 
@@ -517,7 +519,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a21</h1>
+	<h1>Pickpocketing Calculator a22</h1>
 		<form>
 		<table>
 			<tr>
@@ -577,6 +579,12 @@
 				<td>
 					<input type=text id='stealthDeception' value='0' size=2 OnChange='main()'>
 
+				</td>
+			</tr>		
+			<tr>
+				<th>Escape DC</th>
+				<td>
+					<input type=text id='escapeDC' size=2 value='0' readonly>
 				</td>
 			</tr>		
 			<tr>
