@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>5e Pickpocketing Calculator</title>
+	<script>
+		function main () {
+			var investigationRoll = document.getElementById("investigation").value;
+			var victim = document.getElementById("target").value;
+			var sleightOfHandRoll = document.getElementById("sleightOfHand").value;
+	
+		}
+		
+	</script>
+</head>
+<body OnLoad='main()'>
+	<h1>Pickpocketing Calculator</h1>
+		<form>
+		<table>
+			<tr>
+				<th>Investigation Roll</th>
+				<td>
+					<input type=text id='investigation' value='0' size=2 OnChange='main()'>
+				</td>
+			</tr>
+			<tr>
+				<th>Target</th>
+				<td>
+					<select id='target' OnChange='main()'>
+						<option value='0'>9 or less - Townsfolk - 1d10 gp per day</option>
+						<option value='1'>10 - Merchants/Tier 1 adventurers - 1d20 gp per day and 5% chance of a special common item</option>
+						<option value='2'>15 - Rich Merchants/Tier 2 adventurers - 2d20 gp per day and 5% chance of special item (60% common, 40% uncommon)</option>
+						<option value='3'>20 - Nobles/Tier 3 adventurers - 2d100 gp per day and 10% chance of special item (50% common, 30% uncommon, 20% rare)</option>
+						<option value='4'>25 - Rich Nobles/Tier 4 adventurers - 200 gp per day and 10% chance of special item (40% common, 30% uncommon, 20% rare, 10% very rare)</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Sleight of Hand Roll</th>
+				<td>
+					<input type=text id='sleightOfHand' value='0' size=2 OnChange='main()'>
+
+				</td>
+			</tr>		
+
+		</table>
+		<button onclick='main()'>Reset</button>
+	</form>
+</body>
+</html>
