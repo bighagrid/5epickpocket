@@ -387,6 +387,8 @@
 							break;
 					}
 
+					document.getElementById("iroll").value = itemChanceRoll;
+
 					if (item!="") {
 						document.getElementById("result").value = "Success - "+gold+"gp, "+item;
 					} else {
@@ -425,7 +427,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a14</h1>
+	<h1>Pickpocketing Calculator a15</h1>
 		<form>
 		<table>
 			<tr>
@@ -453,6 +455,12 @@
 				<th>Result</th>
 				<td>
 					<input type=text id='result' value='' readonly>
+				</td>
+			</tr>		
+			<tr>
+				<th>Item Roll</th>
+				<td>
+					<input type=text id='iroll' value='' readonly>
 				</td>
 			</tr>		
 
