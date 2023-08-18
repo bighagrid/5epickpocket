@@ -348,13 +348,13 @@
 			document.getElementById("sleightOfHand").value = rand(8,28);
 			document.getElementById("stealthDeception").value = rand(10,29);
 
-			var investigationRoll = document.getElementById("investigation").value;
+			var investigationRoll = parseInt(document.getElementById("investigation").value);
 			var victim = document.getElementById("target");
-			var sleightOfHandRoll = document.getElementById("sleightOfHand").value;
-			var stealthDeceptionRoll = document.getElementById("stealthDeception").value;
-			var lawMod = document.getElementById("law").value;
-			var guildMod = document.getElementById("guild").value;
-			var daysMod = document.getElementById("days").value;
+			var sleightOfHandRoll = parseInt(document.getElementById("sleightOfHand").value);
+			var stealthDeceptionRoll = parseInt(document.getElementById("stealthDeception").value);
+			var lawMod = parseInt(document.getElementById("law").value);
+			var guildMod = parseInt(document.getElementById("guild").value);
+			var daysMod = parseInt(document.getElementById("days").value);
 
 			var targetDC = 0;
 			var reward = 0;
@@ -521,7 +521,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a24</h1>
+	<h1>Pickpocketing Calculator a25</h1>
 		<form>
 		<table>
 			<tr>
