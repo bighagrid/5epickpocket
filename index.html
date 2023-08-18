@@ -6,7 +6,9 @@
 			var investigationRoll = document.getElementById("investigation").value;
 			var victim = document.getElementById("target").value;
 			var sleightOfHandRoll = document.getElementById("sleightOfHand").value;
-	
+		
+
+			
 		}
 		
 	</script>
@@ -25,6 +27,7 @@
 				<th>Target</th>
 				<td>
 					<select id='target' OnChange='main()'>
+						<option value=''>Enter Roll Above</option>
 						<option value='0'>9 or less - Townsfolk - 1d10 gp per day</option>
 						<option value='1'>10 - Merchants/Tier 1 adventurers - 1d20 gp per day and 5% chance of a special common item</option>
 						<option value='2'>15 - Rich Merchants/Tier 2 adventurers - 2d20 gp per day and 5% chance of special item (60% common, 40% uncommon)</option>
