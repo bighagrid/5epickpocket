@@ -285,6 +285,9 @@
 
 
 		function main () {
+			document.getElementById("investigation").value = rand(6,26);
+			document.getElementById("sleightOfHand").value = rand(8,28);
+
 			var investigationRoll = document.getElementById("investigation").value;
 			var victim = document.getElementById("target");
 			var sleightOfHandRoll = document.getElementById("sleightOfHand").value;
@@ -293,7 +296,6 @@
 			var complication = false;
 			var gold=0;
 			var item="";
-
 
 
 
@@ -427,7 +429,7 @@
 	</script>
 </head>
 <body OnLoad='main()'>
-	<h1>Pickpocketing Calculator a15</h1>
+	<h1>Pickpocketing Calculator a16</h1>
 		<form>
 		<table>
 			<tr>
@@ -454,13 +456,7 @@
 			<tr>
 				<th>Result</th>
 				<td>
-					<input type=text id='result' value='' readonly>
-				</td>
-			</tr>		
-			<tr>
-				<th>Item Roll</th>
-				<td>
-					<input type=text id='iroll' value='' readonly>
+					<input type=text id='result' size=50 value='' readonly>
 				</td>
 			</tr>		
 
