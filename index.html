@@ -11,31 +11,31 @@
 
 		
 
-			switch(investigationRoll) {
-  				case 0:
+			switch(true) {
+  				case investigationRoll == 0:
 				    // Do Nothing
 			    	break;
-  				case <= 9:
+  				case investigationRoll<=9 && investigationRoll>0:
 			    	targetDC = investigationRoll;
 			    	reward = 1;
 			    	victim.options[1].selected;
     				break;
-  				case <= 10:
+  				case investigationRoll==10:
 			    	targetDC = 10;
 			    	reward = 2;
 			    	victim.options[2].selected;
     				break;
-  				case <= 15:
+  				case investigationRoll<=15 && investigationRoll>10:
 			    	targetDC = 15;
 			    	reward = 3;
 			    	victim.options[3].selected;
     				break;
-  				case <= 20:
+  				case investigationRoll<=20 && investigationRoll>15:
 			    	targetDC = 20;
 			    	reward = 4;
 			    	victim.options[4].selected;
     				break;
-  				case <= 25:
+  				case investigationRoll<=25 && investigationRoll>20:
 			    	targetDC = 25;
 			    	reward = 5;
 			    	victim.options[5].selected;
